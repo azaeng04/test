@@ -5,3 +5,12 @@ services:
 script:
  - docker build -t mannydesigns/node .
  - docker images mannydesigns/node
+
+before_deploy:
+ - docker login -u azaeng04 -p @za04Michal
+
+deploy:
+  provider: script
+  script: docker push azaneg04/node
+  on:
+   branch: master
